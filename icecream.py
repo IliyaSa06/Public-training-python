@@ -1,9 +1,9 @@
 # Ice cream prices
-vanilla = 10000
-chocolate = 12000
-strawberry = 15000
-coffee = 18000
-pistachio = 20000
+vanilla = 8000
+chocolate = 10000
+strawberry = 12000
+coffee = 15000
+pistachio = 17000
 
 # Orders storage
 order1 = 0
@@ -12,11 +12,11 @@ order3 = 0
 
 # Show menu
 print("Our Ice Cream Menu:")
-print("1- Vanilla (10000 Tomans)")
-print("2- Chocolate (12000 Tomans)")
-print("3- Strawberry (15000 Tomans)")
-print("4- Coffee (18000 Tomans)")
-print("5- Pistachio (20000 Tomans)")
+print("1- Vanilla (8000 Tomans)")
+print("2- Chocolate (10000 Tomans)")
+print("3- Strawberry (12000 Tomans)")
+print("4- Coffee (15000 Tomans)")
+print("5- Pistachio (17000 Tomans)")
 
 # Customer 1 orders
 while True:
@@ -99,9 +99,20 @@ while True:
 # Calculate total
 total = order1 + order2 + order3
 
+# Apply 15% discount if total is more than 30,000 Tomans
+if total > 30000:
+    discount = total * 0.15
+    final_total = total - discount
+else:
+    discount = 0
+    final_total = total
+
 # Print receipt
 print("\n--- Final Receipt ---")
 print("Customer 1:", order1, "Tomans")
 print("Customer 2:", order2, "Tomans")
 print("Customer 3:", order3, "Tomans")
-print("\nTotal Amount:", total, "Tomans")
+print("\nSubtotal:", total, "Tomans")
+if discount > 0:
+    print("Discount (15%):", int(discount), "Tomans")
+print("Total Amount:", int(final_total), "Tomans")
